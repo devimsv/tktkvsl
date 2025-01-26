@@ -304,20 +304,41 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 				</div>
 <div class="elementor-element elementor-element-1206ce83 e-flex e-con-boxed e-con e-child" data-id="1206ce83" data-element_type="container">
 	<div class="e-con-inner">
-		<div class="elementor-element elementor-element-4a7395d0 elementor-widget elementor-widget-video" data-id="4a7395d0" data-element_type="widget" data-settings="{" video_type":"hosted","autoplay":"yes","play_on_mobile":"yes","controls":"yes"}"="" data-widget_type="video.default">
-			<div class="elementor-widget-container">
-				<div class="e-hosted-video elementor-wrapper elementor-open-inline">
-					<div id="vid_6785dc5dcc8b0f207c512270" style="position: relative; width: 100%; padding: 178.21782178217822% 0 0;"> 
-							<img id="thumb_6785dc5dcc8b0f207c512270" src="images/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> 
-								<div id="backdrop_6785dc5dcc8b0f207c512270" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; ">
-								</div> 
-							</div> 
-								<script type="text/javascript" id="scr_6785dc5dcc8b0f207c512270"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/46a4818c-7cd8-4965-b9d1-db8d11a4e167/players/6785dc5dcc8b0f207c512270/player.js", s.async=!0,document.head.appendChild(s); </script> <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>
-					</div>
-						</div>
-				</div>
-					</div>
-				</div>
+		<div class="elementor-element elementor-element-4a7395d0 elementor-widget elementor-widget-video" 
+		data-id="4a7395d0" data-element_type="widget" 
+		data-settings='{"video_type":"hosted","autoplay":"yes","play_on_mobile":"yes","controls":"yes"}' 
+		data-widget_type="video.default">
+		
+		<div class="elementor-widget-container">
+			<div class="e-hosted-video elementor-wrapper elementor-open-inline">
+				<div id="vid_6785dc5dcc8b0f207c512270" style="position: relative; width: 100%; padding: 56.25% 0 0;"> 
+					<!-- Player Video.js substituindo o script original -->
+					<video id="meu-video" class="video-js vjs-default-skin" controls preload="auto" 
+						poster="images/thumbnail.jpg" 
+						width="100%" height="100%" 
+						data-setup='{"fluid": true, "autoplay": true, "muted": false, "controls": true}'>
+						<source src="images/vsl.mp4" type="video/mp4" />
+						Seu navegador não suporta vídeos HTML5.
+					</video>
+				</div> 
+	
+				<!-- Inclusão dos arquivos do Video.js -->
+				<script src="https://vjs.zencdn.net/8.5.3/video.min.js"></script>
+				<link href="https://vjs.zencdn.net/8.5.3/video-js.css" rel="stylesheet" />
+	
+				<style> 
+					#vid_6785dc5dcc8b0f207c512270 {
+						position: relative; 
+						width: 100%; 
+						max-width: 100%;
+					}
+				</style>
+			</div>
+		</div>
+	</div>
+	
+	</div>
+</div>
 				<br>
 				
 <div id="timer-container" style="font-size: 20px; text-align: center; color: red; margin-top: 20px;">
