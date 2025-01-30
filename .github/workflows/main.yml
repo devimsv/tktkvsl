@@ -1,0 +1,23 @@
+name: 🚀 Deploy para Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você usa para o deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📂 Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: 🚀 Enviar arquivos para Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftp.tktkpay.online
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/
