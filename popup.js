@@ -1,19 +1,18 @@
 
-<script>
-    document.getElementById("openPopup").addEventListener("click", function(event) {
-        event.preventDefault(); // Impede o link de redirecionar
-        document.getElementById("popup").style.display = "flex";
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".openPopup").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("customPopup").style.display = "flex";
     });
 
     document.querySelector(".close").addEventListener("click", function() {
-        document.getElementById("popup").style.display = "none";
+        document.getElementById("customPopup").style.display = "none";
     });
 
-    // Fecha o popup se clicar fora dele
     window.onclick = function(event) {
-        let popup = document.getElementById("popup");
+        let popup = document.getElementById("customPopup");
         if (event.target === popup) {
             popup.style.display = "none";
         }
     };
-</script>
+});

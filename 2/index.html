@@ -51,7 +51,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="elementor-post-5-css" href="css/post-5.css%2540ver%253D1730218676.css" media="all">
 <link rel="stylesheet" id="widget-image-css" href="css/widget-image.min.css%2540ver%253D3.24.7.css" media="all">
 <link rel="stylesheet" id="widget-heading-css" href="css/widget-heading.min.css%2540ver%253D3.24.7.css" media="all">
-<link rel="stylesheet" href="../popup.css">
 <link rel="stylesheet" id="widget-counter-css" href="css/widget-counter.min.css%2540ver%253D3.24.7.css" media="all">
 <link rel="stylesheet" id="swiper-css" href="css/swiper.min.css%2540ver%253D8.4.5.css" media="all">
 <link rel="stylesheet" id="e-swiper-css" href="css/e-swiper.min.css%2540ver%253D3.24.7.css" media="all">
@@ -74,7 +73,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="elementor-post-253-css" href="css/post-253.css%2540ver%253D1730218677.css" media="all">
 <link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CInter%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap&ver=6.6.2" media="all">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script src="jquery.min.js%2540ver%253D3.7.1" id="jquery-core-js"></script>
-<script src="../popup.js"></script>
 <script src="jquery-migrate.min.js%2540ver%253D3.4.1" id="jquery-migrate-js"></script>
 <link rel="https://api.w.org/" href="../wp-json/index.html"><link rel="alternate" title="JSON" type="application/json" href="../wp-json/wp/v2/pages/11"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php@rsd">
 <meta name="generator" content="WordPress 6.6.2">
@@ -82,64 +80,6 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="shortlink" href="../index.html@p=11.html">
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="../wp-json/oembed/1.0/embed@url=https%253A%252F%252Fcampanhabonificada.online%252Fpesquisa-tn56%252F">
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed@url=https%253A%252F%252Fcampanhabonificada.online%252Fpesquisa-tn56%252F&format=xml">
-
-<script>
-    document.getElementById("openPopup").addEventListener("click", function(event) {
-        event.preventDefault(); // Impede o link de redirecionar
-        document.getElementById("popup").style.display = "flex";
-    });
-
-    document.querySelector(".close").addEventListener("click", function() {
-        document.getElementById("popup").style.display = "none";
-    });
-
-    // Fecha o popup se clicar fora dele
-    window.onclick = function(event) {
-        let popup = document.getElementById("popup");
-        if (event.target === popup) {
-            popup.style.display = "none";
-        }
-    };
-</script>
-<style>
-    .popup {
-        display: none !important; /* Oculto por padrão */
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .popup-content {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    }
-    .popup-button {
-        background: #28a745;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: 5px;
-        margin-top: 10px;
-    }
-    .close {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 25px;
-        cursor: pointer;
-    }
-</style>
-
 <script id="wpcp_disable_selection" type="text/javascript">
 var image_save_msg='You are not allowed to save images!';
 	var no_menu_msg='Context Menu disabled!';
@@ -429,7 +369,7 @@ if(e)
 			<div class="elementor-element elementor-element-6886f12f elementor-align-left elementor-widget elementor-widget-button" data-id="6886f12f" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-						<a class="elementor-button elementor-button-link elementor-size-sm" href="#" id="openPopup">
+						<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
 						<span class="elementor-button-content-wrapper">
 							<span class="elementor-button-text">SACAR</span>
 						</span>
@@ -439,14 +379,6 @@ if(e)
 			</div>
 		</div>
 	</div>
-</div>
-<!-- Popup -->
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close">&times;</span>
-        <p>Confirme seu saque clicando no botão abaixo.</p>
-        <a href="https://tktkpay.online/12/" class="popup-button">Confirmar Saque</a>
-    </div>
 </div>
 <div class="elementor-element elementor-element-4025f34 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="4025f34" data-element_type="container" data-settings="{" background_background":"classic"}"="">
 					<div class="e-con-inner">
