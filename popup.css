@@ -36,9 +36,10 @@
 		}
 		.close {
 			position: absolute;
-			top: 10px;
+            font-weight: bold;
+			top: 1px;
 			right: 15px;
-			font-size: 25px;
+			font-size: 35px;
 			cursor: pointer;
 		}
 		.elementor-button {
