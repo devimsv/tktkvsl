@@ -13,6 +13,7 @@
 </style>
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" type="application/rss+xml" title="Feed para Campanha Bonus »" href="../feed/index.html">
+<script src="../popup.js"></script>
 <script src="js/n23GKrO2UrKn.js"></script>
 <link rel="alternate" type="application/rss+xml" title="Feed de comentários para Campanha Bonus »" href="../comments/feed/index.html">
 <script>
@@ -44,6 +45,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
 </style>
+<link rel="stylesheet" href="../popup.css">
 <link rel="stylesheet" id="hello-elementor-css" href="css/style.min.css%2540ver%253D3.1.1.css" media="all">
 <link rel="stylesheet" id="hello-elementor-theme-style-css" href="css/theme.min.css%2540ver%253D3.1.1.css" media="all">
 <link rel="stylesheet" id="hello-elementor-header-footer-css" href="css/header-footer.min.css%2540ver%253D3.1.1.css" media="all">
@@ -369,16 +371,23 @@ if(e)
 			<div class="elementor-element elementor-element-6886f12f elementor-align-left elementor-widget elementor-widget-button" data-id="6886f12f" data-element_type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 					<div class="elementor-button-wrapper">
-						<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+						<div class="elementor-button elementor-button-link elementor-size-sm openPopup" data-popup-target="customPopup">
 						<span class="elementor-button-content-wrapper">
 							<span class="elementor-button-text">SACAR</span>
 						</span>
-						</a>
+					</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<!-- Popup -->
+<div id="customPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <h4>Você não pode sacar agora, responda todas as perguntas primeiro!</h4>
+    </div>
 </div>
 <div class="elementor-element elementor-element-4025f34 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="4025f34" data-element_type="container" data-settings="{" background_background":"classic"}"="">
 					<div class="e-con-inner">

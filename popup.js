@@ -1,8 +1,10 @@
-
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".openPopup").addEventListener("click", function(event) {
-        event.preventDefault();
-        document.getElementById("customPopup").style.display = "flex";
+    document.querySelectorAll(".openPopup").forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            let popupId = this.getAttribute("data-popup-target");
+            document.getElementById(popupId).style.display = "flex";
+        });
     });
 
     document.querySelector(".close").addEventListener("click", function() {
