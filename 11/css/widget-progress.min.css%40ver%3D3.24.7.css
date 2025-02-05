@@ -11,8 +11,8 @@
 }
 .elementor-progress-bar {
     display: flex;
-    background-color: #69727d;
-    width: 0;
+    background-color: #d9534f;
+    width: 95%;
     font-size: 11px;
     height: 30px;
     line-height: 30px;
