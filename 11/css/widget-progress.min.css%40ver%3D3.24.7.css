@@ -34,6 +34,7 @@
 }
 .elementor-widget-progress .elementor-progress-wrapper.progress-success .elementor-progress-bar {
     background-color: #5cb85c;
+    width: 95%;
 }
 .elementor-widget-progress .elementor-progress-wrapper.progress-warning .elementor-progress-bar {
     background-color: #f0ad4e;
