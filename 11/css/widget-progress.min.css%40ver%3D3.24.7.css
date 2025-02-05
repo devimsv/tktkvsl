@@ -41,6 +41,7 @@
 }
 .elementor-widget-progress .elementor-progress-wrapper.progress-danger .elementor-progress-bar {
     background-color: #d9534f;
+    width: 95%;
 }
 .elementor-progress .elementor-title {
     display: block;
