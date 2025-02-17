@@ -458,29 +458,51 @@ if(e)
 <script src="js/RgczcYPSb0FA.js"></script>
 
 <script>
-function validateSelection() {
-    // Obtém todos os checkboxes
-    const checkboxes = document.querySelectorAll('.rating-option input[type="checkbox"]');
-    const errorMessage = document.getElementById('error-message');
-    
-    // Verifica se pelo menos um checkbox está selecionado
-    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
-    if (isChecked) {
-        errorMessage.style.display = 'none'; // Esconde a mensagem de erro
-
-        // Ativa o efeito de confetti
-        confetti.start(); 
-        setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
-        
-        // Abre o popup do Elementor usando o novo ID numérico do popup
-        elementorProFrontend.modules.popup.showPopup({ id: 256 });
-
-    } else {
-        errorMessage.style.display = 'block'; // Exibe a mensagem de erro
-    }
-}
-</script>
+	function validateSelection() {
+		// Obtém todos os checkboxes
+		const checkboxes = document.querySelectorAll('.rating-option input[type="checkbox"]');
+		const errorMessage = document.getElementById('error-message');
+		
+		// Verifica se pelo menos um checkbox está selecionado
+		const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+	
+		if (isChecked) {
+			errorMessage.style.display = 'none'; // Esconde a mensagem de erro
+	
+			// Obtém a página atual e define a próxima
+			let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+			let proximaPagina = paginaAtual + 1;
+	
+			// Salva no LocalStorage para lembrar onde o usuário parou
+			localStorage.setItem("progressoQuiz", proximaPagina);
+	
+			// Ativa o efeito de confetti
+			if (typeof confetti !== 'undefined' && confetti.start) {
+				confetti.start();
+				setTimeout(function() {
+					confetti.stop();
+				}, 1000); // Para o confetti após 1 segundo
+			} else {
+				console.warn('A função confetti.start não está disponível.');
+			}
+	
+			// Abre o popup do Elementor usando o ID numérico do popup
+			if (typeof elementorProFrontend !== 'undefined' && elementorProFrontend.modules.popup) {
+				elementorProFrontend.modules.popup.showPopup({ id: 256 });
+			} else {
+				console.warn('O módulo de popup do Elementor não está disponível.');
+			}
+	
+			// Aguarda 1.5 segundos para dar tempo do confete aparecer e do popup abrir, antes de redirecionar para a próxima página
+			setTimeout(() => {
+				window.location.href = `../${proximaPagina}/index.html`;
+			}, 1500);
+	
+		} else {
+			errorMessage.style.display = 'block'; // Exibe a mensagem de erro
+		}
+	}
+	</script>
 		</div>
 				</div>
 				<div class="elementor-element elementor-element-6f43c735 elementor-mobile-align-justify elementor-widget-mobile__width-inherit elementor-align-justify elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="6f43c735" data-element_type="widget" data-widget_type="button.default">
