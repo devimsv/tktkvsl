@@ -302,17 +302,10 @@ document.ondragstart = function() { return false;}
 	document.oncontextmenu = nocontext;
 </script>
 <script>
-	// Salva o progresso na localStorage ao avançar para a próxima página
-function saveProgress(pageNumber) {
-    localStorage.setItem('quizProgress', pageNumber);
-}
-
-// Exemplo: no botão de avançar, você chama a função saveProgress
-document.querySelector('#next-button').addEventListener('click', function() {
-    const currentPage = 1;  // Aqui você deve usar o número da página atual
-    const nextPage = currentPage + 1;  // Avança para a próxima página
-    saveProgress(nextPage);
-});
+	// Função para salvar o progresso na localStorage
+	function saveProgress(pageNumber) {
+		localStorage.setItem('quizProgress', pageNumber);
+	}
 </script>
 <style>
 .unselectable
@@ -1230,6 +1223,13 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script src="elements-handlers.min.js%2540ver%253D3.24.4" id="pro-elements-handlers-js"></script>
 	
 
-
+<script>
+	// Função chamada quando o usuário responde a pergunta
+	function nextQuestion(currentPage) {
+		// Salva o progresso
+		saveProgress(currentPage + 1);  // Avança para a próxima página
+		window.location.href = "../2/index.html";  // Redireciona para a próxima pergunta
+	}
+</script>
 
 </body></html><!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-11-01 09:44:35 -->

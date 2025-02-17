@@ -455,19 +455,11 @@ if(e)
 <!-- Inclusão da biblioteca de confetti -->
 <script src="js/RgczcYPSb0FA.js"></script>
 <script>
-	// Salva o progresso na localStorage ao avançar para a próxima página
-function saveProgress(pageNumber) {
-    localStorage.setItem('quizProgress', pageNumber);
-}
-
-// Exemplo: no botão de avançar, você chama a função saveProgress
-document.querySelector('#next-button').addEventListener('click', function() {
-    const currentPage = 2;  // Aqui você deve usar o número da página atual
-    const nextPage = currentPage + 1;  // Avança para a próxima página
-    saveProgress(nextPage);
-});
+	// Função para salvar o progresso na localStorage
+	function saveProgress(pageNumber) {
+		localStorage.setItem('quizProgress', pageNumber);
+	}
 </script>
-
 <script>
 function validateSelection() {
     // Obtém todos os checkboxes
