@@ -301,12 +301,6 @@ document.ondragstart = function() { return false;}
 	}
 	document.oncontextmenu = nocontext;
 </script>
-<script>
-	// Função para salvar o progresso na localStorage
-	function saveProgress(pageNumber) {
-		localStorage.setItem('quizProgress', pageNumber);
-	}
-</script>
 <style>
 .unselectable
 {
@@ -477,12 +471,15 @@ function validateSelection() {
     if (isChecked) {
         errorMessage.style.display = 'none'; // Esconde a mensagem de erro
 
-        // Ativa o efeito de confetti
-        confetti.start(); 
-        setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
-        
-        // Abre o popup do Elementor usando o novo ID numérico do popup
-        elementorProFrontend.modules.popup.showPopup({ id: 256 });
+        // Obtém a página atual e define a próxima
+        let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+        let proximaPagina = paginaAtual + 1;
+
+        // Salva no localStorage
+        localStorage.setItem("progressoQuiz", proximaPagina);
+
+        // Redireciona para a próxima página
+        window.location.href = `/${proximaPagina}/index.html`; // Ajuste conforme sua estrutura de pastas
 
     } else {
         errorMessage.style.display = 'block'; // Exibe a mensagem de erro
@@ -1221,13 +1218,6 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script src="frontend.min.js%2540ver%253D3.24.7" id="elementor-frontend-js"></script>
 <script src="elements-handlers.min.js%2540ver%253D3.24.4" id="pro-elements-handlers-js"></script>
-    <script>
-        // Função chamada quando o usuário responde a pergunta
-        function nextQuestion(currentPage) {
-            // Salva o progresso
-            saveProgress(currentPage + 1);  // Avança para a próxima página
-            window.location.href = "../2/index.html";  // Redireciona para a próxima pergunta
-        }
-    </script>
+
 
 </body></html><!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-11-01 09:44:35 -->
