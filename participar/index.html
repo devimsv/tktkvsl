@@ -25,21 +25,26 @@
     document.addEventListener("DOMContentLoaded", function () {
         const pathname = window.location.pathname;
 
-        // Obtém a parte relevante da URL (ex: "1", "2", "3", etc.)
+        // Remove a barra inicial e divide a URL em partes
         const pathParts = pathname.split("/").filter(Boolean);
-        const currentPage = pathParts.length > 1 ? pathParts[1] : null;
 
-        // Salva a última página acessada, desde que não seja "participar"
-        if (currentPage && currentPage !== "participar") {
+        // Obtém a última parte relevante da URL (ex: "1", "2", "3", etc.)
+        const currentPage = pathParts[pathParts.length - 2];
+
+        // Se estiver em uma página do quiz (1, 2, 3...), salva o progresso
+        if (!isNaN(currentPage)) {
             localStorage.setItem("quizProgress", pathname);
         }
 
-        // Se estiver em "participar", verifica o progresso salvo e redireciona
-        if (pathname.includes("/participar/")) {
+        // Se estiver na página "participar", redireciona para a última página salva
+        if (pathname.includes("participar")) {
             const lastPage = localStorage.getItem("quizProgress");
 
-            if (lastPage && lastPage !== pathname) {
-                window.location.href = lastPage;
+            if (lastPage) {
+                console.log("Redirecionando para:", lastPage);
+                setTimeout(() => {
+                    window.location.href = lastPage;
+                }, 100); // Pequeno delay para evitar conflitos
             }
         }
     });
