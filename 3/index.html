@@ -465,28 +465,42 @@ if(e)
 <script src="js/IDyNSMaqpyAw.js"></script>
 
 <script>
-function validateSelection() {
-    // Obtém todos os checkboxes
-    const checkboxes = document.querySelectorAll('.rating-option input[type="checkbox"]');
-    const errorMessage = document.getElementById('error-message');
-    
-    // Verifica se pelo menos um checkbox está selecionado
-    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+	function validateSelection() {
+		// Obtém todos os checkboxes
+		const checkboxes = document.querySelectorAll('.rating-option input[type="checkbox"]');
+		const errorMessage = document.getElementById('error-message');
+		
+		// Verifica se pelo menos um checkbox está selecionado
+		const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+	
+		if (isChecked) {
+			errorMessage.style.display = 'none'; // Esconde a mensagem de erro
 
-    if (isChecked) {
-        errorMessage.style.display = 'none'; // Esconde a mensagem de erro
+			// Ativa o efeito de confetti
+			confetti.start(); 
+			
+			// Para o confetti após 5 segundos e redireciona depois
+			setTimeout(function(){
+				confetti.stop(); // Para o confetti após 5 segundos
 
-        // Ativa o efeito de confetti
-        confetti.start(); 
-        setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
-        
-        // Abre o popup do Elementor usando o novo ID numérico do popup
-        elementorProFrontend.modules.popup.showPopup({ id: 259 });
+				// Obtém a página atual e define a próxima
+				let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+				let proximaPagina = paginaAtual + 1;
+	
+				// Salva no localStorage
+				localStorage.setItem("progressoQuiz", proximaPagina);
+	
+				// Redireciona para a próxima página
+				window.location.href = `../${proximaPagina}/index.html`;
+			}, 5000); // Espera 5 segundos para parar o confetti e redirecionar
 
-    } else {
-        errorMessage.style.display = 'block'; // Exibe a mensagem de erro
-    }
-}
+			// Abre o popup do Elementor usando o novo ID numérico do popup
+			elementorProFrontend.modules.popup.showPopup({ id: 259 });
+	
+		} else {
+			errorMessage.style.display = 'block'; // Exibe a mensagem de erro
+		}
+	}
 </script>
 		</div>
 				</div>
