@@ -349,14 +349,7 @@ if(e)
 <link rel="icon" href="images/SZ1nCdp9EiVs.jpg" sizes="192x192">
 <link rel="apple-touch-icon" href="images/SZ1nCdp9EiVs.jpg">
 <meta name="msapplication-TileImage" content="https://campanhabonificada.online/wp-content/uploads/2024/10/tiktok-logo-300x300.jpg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><script src="js/nQ2RUeB9ac8t.js" defer=""></script><script src="js/ESTq86DkefzV.js" defer=""></script><script src="js/wp-emoji-release.min.js" defer=""></script><script src="js/wp-emoji-release.min_1.js" defer=""></script><script src="js/wp-emoji-release.min_2.js" defer=""></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			// Salva a URL da última página acessada no sessionStorage
-			sessionStorage.setItem("quizProgress", window.location.pathname);
-		});
-	</script>	
-</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><script src="js/nQ2RUeB9ac8t.js" defer=""></script><script src="js/ESTq86DkefzV.js" defer=""></script><script src="js/wp-emoji-release.min.js" defer=""></script><script src="js/wp-emoji-release.min_1.js" defer=""></script><script src="js/wp-emoji-release.min_2.js" defer=""></script></head>
 <body class="page-template page-template-elementor_canvas page page-id-11 unselectable elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-11" style="cursor: default;">
 			<div data-elementor-type="wp-page" data-elementor-id="11" class="elementor elementor-11" data-elementor-post-type="page">
 				<div class="elementor-element elementor-element-1f70ddb5 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="1f70ddb5" data-element_type="container" data-settings="{" background_background":"classic","sticky":"top","sticky_on":["desktop","tablet","mobile"],"sticky_offset":0,"sticky_effects_offset":0}"="">
@@ -478,12 +471,34 @@ function validateSelection() {
     if (isChecked) {
         errorMessage.style.display = 'none'; // Esconde a mensagem de erro
 
+        // Obtém a página atual e define a próxima
+        let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+        let proximaPagina = paginaAtual + 1;
+
+        // Salva no LocalStorage para lembrar onde o usuário parou
+        localStorage.setItem("progressoQuiz", proximaPagina);
+
         // Ativa o efeito de confetti
-        confetti.start(); 
-        setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
-        
-        // Abre o popup do Elementor usando o novo ID numérico do popup
-        elementorProFrontend.modules.popup.showPopup({ id: 256 });
+        if (typeof confetti !== 'undefined' && confetti.start) {
+            confetti.start();
+            setTimeout(function() {
+                confetti.stop();
+            }, 1000); // Para o confetti após 1 segundo
+        } else {
+            console.warn('A função confetti.start não está disponível.');
+        }
+
+        // Abre o popup do Elementor usando o ID numérico do popup
+        if (typeof elementorProFrontend !== 'undefined' && elementorProFrontend.modules.popup) {
+            elementorProFrontend.modules.popup.showPopup({ id: 256 });
+        } else {
+            console.warn('O módulo de popup do Elementor não está disponível.');
+        }
+
+        // Aguarda 1.5 segundos para dar tempo do confete aparecer e do popup abrir, antes de redirecionar para a próxima página
+        setTimeout(() => {
+            window.location.href = `../${proximaPagina}/index.html`;
+        }, 1500);
 
     } else {
         errorMessage.style.display = 'block'; // Exibe a mensagem de erro
