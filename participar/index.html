@@ -3,12 +3,19 @@
         document.addEventListener("DOMContentLoaded", function () {
             const pathname = window.location.pathname;
     
-            // Verifica se a página atual é diferente da página inicial do quiz
-            if (!pathname.includes("participar")) {
-                // Salva a última página acessada no localStorage
+            // Remove a barra inicial e divide a URL em partes
+            const pathParts = pathname.split("/").filter(Boolean);
+    
+            // Obtém a última parte relevante da URL (ex: "1", "2", "3", etc.)
+            const currentPage = pathParts.length > 1 ? pathParts[1] : null;
+    
+            // Se estiver em uma página do quiz (1, 2, 3...), salva o progresso
+            if (currentPage && currentPage !== "participar") {
                 localStorage.setItem("quizProgress", pathname);
-            } else {
-                // Se estiver na página de "participar", redireciona para a última página visitada
+            }
+    
+            // Se estiver na página "participar", verifica o progresso salvo e redireciona
+            if (pathParts.includes("participar")) {
                 const lastPage = localStorage.getItem("quizProgress");
     
                 if (lastPage) {
@@ -16,7 +23,8 @@
                 }
             }
         });
-    </script>    
+    </script>
+    
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-P6HR3WXXGW"></script>
  
         <meta charset="UTF-8">
