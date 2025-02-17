@@ -1219,5 +1219,12 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	
 
 
-
+<script>
+	// Função chamada quando o usuário responde a pergunta
+	function nextQuestion(currentPage) {
+		// Salva o progresso
+		saveProgress(currentPage + 1);  // Avança para a próxima página
+		window.location.href = "../3/index.html";  // Redireciona para a próxima pergunta
+	}
+</script>
 </body></html><!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-11-01 09:44:35 -->
