@@ -18,11 +18,12 @@
     <script>
         // Ao carregar a página inicial, verificar se existe uma última página salva
         window.onload = function() {
+            // Verifica se existe uma página salva no localStorage
             const ultimaPagina = localStorage.getItem('ultimaPagina'); // Obtém a última página visitada
 
             if (ultimaPagina) {
-                // Se a última página for encontrada, redireciona para ela
-                window.location.href = `../${ultimaPagina}/index.html`; // Exemplo: redireciona para "../1/index.html"
+                // Se houver, redireciona para a última página visitada
+                window.location.href = `../${ultimaPagina}/index.html`; // Redireciona para a página salva
             }
         };
     </script>
