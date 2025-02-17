@@ -1,21 +1,18 @@
 <html><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><head>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Obtém a URL atual e extrai a última parte da rota
-            const pathParts = window.location.pathname.split("/").filter(Boolean); 
-            const currentPage = pathParts[pathParts.length - 1]; 
+            const pathname = window.location.pathname;
     
-            // Se a página não for "participar", salvar o progresso
-            if (currentPage !== "participar") {
-                localStorage.setItem("quizProgress", currentPage);
-            }
-    
-            // Se o usuário estiver na página "participar", redirecioná-lo para onde ele parou
-            if (currentPage === "participar") {
+            // Verifica se a página atual é diferente da página inicial do quiz
+            if (!pathname.includes("participar")) {
+                // Salva a última página acessada no localStorage
+                localStorage.setItem("quizProgress", pathname);
+            } else {
+                // Se estiver na página de "participar", redireciona para a última página visitada
                 const lastPage = localStorage.getItem("quizProgress");
     
                 if (lastPage) {
-                    window.location.href = `../${lastPage}/index.html`;
+                    window.location.href = lastPage;
                 }
             }
         });
