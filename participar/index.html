@@ -16,16 +16,17 @@
     <link rel="alternate" type="application/rss+xml" title="Feed para Perguntas »" href="https://perguntas.pawssure.com//feed/">
     <link rel="alternate" type="application/rss+xml" title="Feed de comentários para Perguntas »" href="https://perguntas.pawssure.com//comments/feed/">
     <script>
-        // Ao carregar a página inicial, verificar se existe uma última página salva
+        // Função para carregar o progresso salvo na localStorage
         window.onload = function() {
-            // Verifica se existe uma página salva no localStorage
-            const ultimaPagina = localStorage.getItem('ultimaPagina'); // Obtém a última página visitada
-
-            if (ultimaPagina) {
-                // Se houver, redireciona para a última página visitada
-                window.location.href = `../${ultimaPagina}/index.html`; // Redireciona para a página salva
+            const progress = localStorage.getItem('quizProgress');
+            if (progress) {
+                // Se houver progresso salvo, redireciona para a página correspondente
+                window.location.href = `../${progress}/index.html`;
+            } else {
+                // Se não houver progresso, começa da primeira página
+                window.location.href = "../1/index.html";
             }
-        };
+        }
     </script>
     <script>
     window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/perguntas.pawssure.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
@@ -1158,17 +1159,5 @@ src="https://www.facebook.com/tr?id=1824964014997205&ev=PageView&noscript=1"
     </script>
     <script src="js/UOqlRkqnIYrV.js" id="elementor-frontend-js"></script>
     <script src="js/VH0Y7zm6fjqL.js" id="pro-elements-handlers-js"></script>
-    
-    <script>// Verifica o progresso do usuário e redireciona para a página correspondente
-        window.onload = function() {
-            const progress = localStorage.getItem('quizProgress');
-            if (progress) {
-                // Se o usuário já tem um progresso salvo, redireciona para a página correspondente
-                window.location.href = `../${progress}/index.html`;
-            } else {
-                // Se não houver progresso, inicia no quiz 1
-                window.location.href = "../1/index.html";
-            }
-        };</script>
-    </body>
-    </html>
+        
+    </body></html>
