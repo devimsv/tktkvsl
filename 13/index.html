@@ -12,6 +12,31 @@
 	transform: rotate(45deg);
 }
 </style>
+<style>
+	/* Estilo para o Popup */
+.popupsaque {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content-saque {
+  background-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+a#popup-link {
+	background: #fff;
+}
+</style>
 <meta name="robots" content="max-image-preview:large">
 <script>
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/perguntas.pawssure.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.2"}};
@@ -90,6 +115,23 @@ src="https://www.facebook.com/tr?id=1824964014997205&ev=PageView&noscript=1"
 <link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CInter%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap&ver=6.6.2" media="all">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script src="js/jquery.min.js" id="jquery-core-js"></script><style type="text/css" id="operaUserStyle"></style>
 <script src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script>
+	function openPopup() {
+  // Define o link original
+  const link = "https://go.disruptybr.com.br/bvxhv8ellh";
+  
+  // Atualiza o href do link dentro do popup
+  document.getElementById("popup-link").href = link;
+  
+  // Exibe o popup
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  // Fecha o popup
+  document.getElementById("popup").style.display = "none";
+}
+</script>
 <script id="wpcp_disable_selection" type="text/javascript">
 var image_save_msg='You are not allowed to save images!';
 	var no_menu_msg='Context Menu disabled!';
@@ -409,30 +451,43 @@ if(e)
 		</div>
 				</div>
 				</div>
-				<div class="elementor-element elementor-element-653a842d elementor-mobile-align-justify elementor-align-justify elementor-widget elementor-widget-button" data-id="653a842d" data-element_type="widget" data-widget_type="button.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://go.disruptybr.com.br/bvxhv8ellh">
-						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Realizar Saque</span>
-					</span>
-					</a>
+<div class="elementor-element elementor-element-653a842d elementor-mobile-align-justify elementor-align-justify elementor-widget elementor-widget-button" data-id="653a842d" data-element_type="widget" data-widget_type="button.default">
+	<div class="elementor-widget-container">
+		<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="javascript:void(0);" onclick="openPopup()">
+				<span class="elementor-button-content-wrapper">
+					<span class="elementor-button-text">Realizar Saque</span>
+				</span>
+			</a>
 		</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-335a0db5 elementor-widget elementor-widget-html" data-id="335a0db5" data-element_type="widget" data-widget_type="html.default">
-				<div class="elementor-widget-container">
+	</div>
+</div>
+<!-- Popup -->
+<div id="popup" class="popupsaque" style="display: none;">
+	<div class="popup-content-saque">
+	  <a id="popup-link" href="#" target="_blank" class="elementor-button elementor-button-link elementor-size-sm">
+		<span style="color: #000;">ATENÇÃO:</span><span> Certifique-se de emitir o pagamento apenas se estiver de acordo com o valor da tarifa ANTI-FRAUDE. Ressaltamos que o evento possui vagas limitadas, e a geração do pagamento pode comprometer a disponibilidade de uma vaga para outros usuários.</span>
+		<span class="elementor-button-content-wrapper">
+		  <span class="elementor-button-text">Ir para Realizar Saque</span>
+		</span>
+	  </a>
+	  <button onclick="closePopup()">Fechar</button>
+	</div>
+  </div>
+<div class="elementor-element elementor-element-335a0db5 elementor-widget elementor-widget-html" data-id="335a0db5" data-element_type="widget" data-widget_type="html.default">
+	<div class="elementor-widget-container">
 			<script>
-window.onload = function() {
-    setTimeout(function() {
-        window.scroll({
-            top: document.body.scrollHeight,
-            left: 0,
-            behavior: 'smooth'
-        });
-    }, 2000); // 2 segundos
-};
-</script>		</div>
+			window.onload = function() {
+				setTimeout(function() {
+					window.scroll({
+						top: document.body.scrollHeight,
+						left: 0,
+						behavior: 'smooth'
+					});
+				}, 2000); // 2 segundos
+			};
+			</script>		
+	</div>
 				</div>
 					</b></div><b>
 				</b></div><b>
