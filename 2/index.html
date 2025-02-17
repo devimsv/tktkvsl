@@ -1216,12 +1216,18 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script src="frontend.min.js%2540ver%253D3.24.7" id="elementor-frontend-js"></script>
 <script src="elements-handlers.min.js%2540ver%253D3.24.4" id="pro-elements-handlers-js"></script>
+	
 <script>
-	// Função chamada quando o usuário responde a pergunta
-	function nextQuestion(currentPage) {
-		// Salva o progresso
-		saveProgress(currentPage + 1);  // Avança para a próxima página
-		window.location.href = "../3/index.html";  // Redireciona para a próxima pergunta
+	function validateSelection() {
+		// Obtém a página atual e define a próxima
+		let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+		let proximaPagina = paginaAtual + 1;
+
+		// Salva no localStorage
+		localStorage.setItem("progressoQuiz", proximaPagina);
+
+		// Redireciona para a próxima página
+		window.location.href = `../${proximaPagina}/index.html`; // Ajuste conforme sua estrutura de pastas
 	}
 </script>
 
