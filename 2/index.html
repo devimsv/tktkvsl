@@ -467,6 +467,13 @@ if(e)
 	
 		if (isChecked) {
 			errorMessage.style.display = 'none'; // Esconde a mensagem de erro
+
+			// Ativa o efeito de confetti
+			confetti.start(); 
+			setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
+
+			// Abre o popup do Elementor usando o novo ID numérico do popup
+			elementorProFrontend.modules.popup.showPopup({ id: 259 });
 	
 			// Obtém a página atual e define a próxima
 			let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
