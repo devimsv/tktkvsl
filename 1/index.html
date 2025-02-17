@@ -301,6 +301,19 @@ document.ondragstart = function() { return false;}
 	}
 	document.oncontextmenu = nocontext;
 </script>
+<script>
+	// Salva o progresso na localStorage ao avançar para a próxima página
+function saveProgress(pageNumber) {
+    localStorage.setItem('quizProgress', pageNumber);
+}
+
+// Exemplo: no botão de avançar, você chama a função saveProgress
+document.querySelector('#next-button').addEventListener('click', function() {
+    const currentPage = 1;  // Aqui você deve usar o número da página atual
+    const nextPage = currentPage + 1;  // Avança para a próxima página
+    saveProgress(nextPage);
+});
+</script>
 <style>
 .unselectable
 {

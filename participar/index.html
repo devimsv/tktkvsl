@@ -1158,5 +1158,17 @@ src="https://www.facebook.com/tr?id=1824964014997205&ev=PageView&noscript=1"
     </script>
     <script src="js/UOqlRkqnIYrV.js" id="elementor-frontend-js"></script>
     <script src="js/VH0Y7zm6fjqL.js" id="pro-elements-handlers-js"></script>
-        
-    </body></html>
+    
+    <script>// Verifica o progresso do usuário e redireciona para a página correspondente
+        window.onload = function() {
+            const progress = localStorage.getItem('quizProgress');
+            if (progress) {
+                // Se o usuário já tem um progresso salvo, redireciona para a página correspondente
+                window.location.href = `../${progress}/index.html`;
+            } else {
+                // Se não houver progresso, inicia no quiz 1
+                window.location.href = "../1/index.html";
+            }
+        };</script>
+    </body>
+    </html>
