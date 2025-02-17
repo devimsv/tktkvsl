@@ -1223,30 +1223,17 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	
 <script>
 	function validateSelection() {
-		// Obtém todos os checkboxes
-		const checkboxes = document.querySelectorAll('.rating-option input[type="checkbox"]');
-		const errorMessage = document.getElementById('error-message');
-		
-		// Verifica se pelo menos um checkbox está selecionado
-		const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-	
-		if (isChecked) {
-			errorMessage.style.display = 'none'; // Esconde a mensagem de erro
-	
-			// Obtém a página atual e define a próxima
-			let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
-			let proximaPagina = paginaAtual + 1;
-	
-			// Salva no localStorage
-			localStorage.setItem("progressoQuiz", proximaPagina);
-	
-			// Redireciona para a próxima página
-			window.location.href = `../${proximaPagina}/index.html`; // Ajuste conforme sua estrutura de pastas
-	
-		} else {
-			errorMessage.style.display = 'block'; // Exibe a mensagem de erro
-		}
+		// Obtém a página atual e define a próxima
+		let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
+		let proximaPagina = paginaAtual + 1;
+
+		// Salva no localStorage
+		localStorage.setItem("progressoQuiz", proximaPagina);
+
+		// Redireciona para a próxima página
+		window.location.href = `../${proximaPagina}/index.html`; // Ajuste conforme sua estrutura de pastas
 	}
-	</script>
+</script>
+
 
 </body></html><!-- Page cached by LiteSpeed Cache 6.5.2 on 2024-11-01 09:44:37 -->
