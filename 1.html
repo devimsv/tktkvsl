@@ -442,15 +442,12 @@ function validateSelection() {
     if (isChecked) {
         errorMessage.style.display = 'none'; // Esconde a mensagem de erro
 
-        // Obtém a página atual e define a próxima
-        let paginaAtual = window.location.pathname.match(/\d+/) ? parseInt(window.location.pathname.match(/\d+/)[0]) : 1;
-        let proximaPagina = paginaAtual + 1;
-
-        // Salva no localStorage
-        localStorage.setItem("progressoQuiz", proximaPagina);
-
-        // Redireciona para a próxima página
-        window.location.href = `../${proximaPagina}/index.html`; // Ajuste conforme sua estrutura de pastas
+        // Ativa o efeito de confetti
+        confetti.start(); 
+        setTimeout(function(){ confetti.stop(); }, 1000); // Para o confetti após 1 segundo
+        
+        // Abre o popup do Elementor usando o novo ID numérico do popup
+        elementorProFrontend.modules.popup.showPopup({ id: 256 });
 
     } else {
         errorMessage.style.display = 'block'; // Exibe a mensagem de erro
