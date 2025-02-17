@@ -411,7 +411,7 @@ src="https://www.facebook.com/tr?id=1824964014997205&ev=PageView&noscript=1"
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 // Pega a última página salva
-                const lastPage = localStorage.getItem("quizProgress");
+                const lastPage = sessionStorage.getItem("quizProgress");
         
                 // Se houver uma página salva, redireciona o usuário
                 if (lastPage) {
